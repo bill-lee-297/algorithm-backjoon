@@ -9,7 +9,7 @@ class Node {
   }
 }
 
-class queue {
+class Queue {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -24,11 +24,13 @@ class queue {
       this.tail.next = newNode;
       this.tail = newNode;
     }
+    this.size++;
   }
 
   dequeue() {
     const value = this.head.value;
     this.head = this.head.next;
+    this.size--;
     return value;
   }
 
@@ -37,3 +39,18 @@ class queue {
   }
 }
 
+const queue = new Queue();
+
+for(let i=1; i<=input; i++){
+  queue.enqueue(i);
+}
+
+while (queue.size > 1) {
+  queue.dequeue();
+  if(queue.size !== 1){
+    const backNumber = queue.dequeue();
+    queue.enqueue(backNumber);
+  }
+}
+
+console.log(queue.peek());
