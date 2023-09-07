@@ -8,22 +8,20 @@ for(let i=0; i<input.length; i++){
   dic[from].push(to);
   dic[to].push(from);
 }
-console.log(dic)
-
 let lineCount = 0;
 const visited = [];
 let stack = [];
 
-for(let i=1; i<=dic.size; i++){
+for(let i=1; i<dic.length; i++){
   if(!visited.includes(i)){
-    stack.push(...dic.get(i))
+    stack.push(...dic[i])
     visited.push(i);
     lineCount++;
     while(stack.length > 0){
       let node = stack.shift();
       if(!visited.includes(node)){
         visited.push(node);
-        const set = new Set([...dic.get(node), ...stack]);
+        const set = new Set([...dic[node], ...stack]);
         stack = [...set];
       }
     }
