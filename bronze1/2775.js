@@ -16,11 +16,9 @@ while(testCase--){
   for(let i=1; i<=floor; i++){
     apartment[i] = [];
     for(let j=0; j<line; j++){
-      let amount = 0;
-      for(let k=0; k<j+1; k++){
-        amount += apartment[i-1][k];
-      }
-      apartment[i].push(amount);
+      let downFloor = apartment[i-1][j];
+      let nextLine = apartment[i][j-1] || 0;
+      apartment[i].push(downFloor + nextLine);
     }
   }
   testCaseLine = testCaseLine + 2;
