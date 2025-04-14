@@ -42,6 +42,7 @@ while(true) {
   if(cnt === 0) console.log(`Case ${testCase}: No trees.`);
   else if(cnt === 1) console.log(`Case ${testCase}: There is one tree.`);
   else console.log(`Case ${testCase}: A forest of ${cnt} trees.`);
+  console.log("test")
   line += m + 1;
   testCase++;
 }
